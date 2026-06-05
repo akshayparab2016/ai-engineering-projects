@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>🤖 AI Chat Assistant</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .chat-card {
+        width: 100%;
+        max-width: 850px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(12px);
+        border-radius: 25px;
+        padding: 35px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        color: white;
+      }
+
+      .title {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        text-align: center;
+        color: white;
+        margin-bottom: 25px;
+      }
+
+      textarea {
+        border: none !important;
+        border-radius: 15px !important;
+        padding: 15px !important;
+        resize: none;
+        font-size: 1rem;
+      }
+
+      textarea:focus {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3) !important;
+      }
+
+      .btn-generate {
+        width: 30%;
+        border: none;
+        padding: 12px;
+        border-radius: 12px;
+        font-weight: 600;
+        background: #ffffff;
+        color: #764ba2;
+        transition: 0.3s;
+      }
+
+      .btn-generate:hover {
+        transform: translateY(-2px);
+        background: #000000;
+      }
+
+      .response-box {
+        background: white;
+        color: #333;
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 10px;
+        max-height: 400px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .response-title {
+        font-size: 19px;
+        font-weight: 600;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        color: white;
+      }
+
+      .robot {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="chat-card">
+      <div class="title">🤖 AI Chat Assistant</div>
+
+      <form method="POST">
+        <textarea
+          name="prompt"
+          rows="4"
+          class="form-control"
+          placeholder="Ask me anything..."
+          required
+        ></textarea>
+
+        <button class="btn btn-generate mt-3">✨ Generate Response</button>
+      </form>
+
+      {% if ai_response %}
+      <div class="response-title">AI Response</div>
+      <div class="response-box">{{ ai_response }}</div>
+      {% endif %}
+      <br />
+      <div class="subtitle">Powered by Flask + Groq + Llama 3.3</div>
+    </div>
+  </body>
+</html>
