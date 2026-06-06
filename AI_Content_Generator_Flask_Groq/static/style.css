@@ -1,0 +1,249 @@
+/* ==========================
+   GLOBAL STYLES
+========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  overflow-x: hidden;
+  color: white;
+}
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(135deg, #0b1020 0%, #111827 35%, #1e1b4b 100%);
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  background: #3b82f6;
+
+  border-radius: 50%;
+
+  filter: blur(180px);
+
+  top: -120px;
+  left: -120px;
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+
+  width: 450px;
+  height: 450px;
+
+  background: #8b5cf6;
+
+  border-radius: 50%;
+
+  filter: blur(180px);
+
+  bottom: -120px;
+  right: -120px;
+}
+
+/* ==========================
+   GLASS CARD
+========================== */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 24px;
+
+  padding: 35px;
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(59, 130, 246, 0.08);
+
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+}
+
+/* ==========================
+   HEADINGS
+========================== */
+
+.title {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+}
+
+/* ==========================
+   INPUTS
+========================== */
+
+.custom-input {
+  background: rgba(255, 255, 255, 0.08);
+
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 12px;
+
+  padding: 12px;
+
+  transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+  background: rgba(255, 255, 255, 0.12);
+
+  color: white;
+
+  border-color: rgba(59, 130, 246, 0.6);
+
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.2);
+
+  outline: none;
+}
+
+.custom-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Dropdown options */
+
+select.custom-input option {
+  background: #111827;
+  color: white;
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+.generate-btn {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 14px;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.generate-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 25px rgba(0, 114, 255, 0.45);
+}
+
+.generate-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================
+   OUTPUT
+========================== */
+
+.output-section {
+  margin-top: 30px;
+}
+
+.output-box {
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 15px;
+
+  padding: 20px;
+
+  max-height: 600px;
+
+  overflow-y: auto;
+
+  white-space: pre-wrap;
+
+  line-height: 1.8;
+
+  font-size: 15px;
+}
+
+/* ==========================
+   COPY BUTTON
+========================== */
+
+.btn-success {
+  border-radius: 10px;
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+  .glass-card {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .generate-btn {
+    font-size: 16px;
+  }
+}
