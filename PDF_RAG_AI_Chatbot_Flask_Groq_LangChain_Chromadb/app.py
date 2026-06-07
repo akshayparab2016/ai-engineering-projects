@@ -135,7 +135,7 @@ def process_pdfs(pdf_paths):
 
     db = Chroma.from_documents(
         documents=chunks,
-        embedding=embedding_model,
+        embedding=get_embeddings(),
         persist_directory=db_path
     )
 
@@ -211,7 +211,6 @@ def ask_question():
         return jsonify({
             "answer": f"Error: {str(e)}"
         })
-
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
