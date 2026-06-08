@@ -16,25 +16,20 @@ from langchain_classic.chains.combine_documents import (
     create_stuff_documents_chain
 )
 
+print("STEP 1")
 load_dotenv()
-
+print("STEP 2")
 app = Flask(__name__)
-
+print("STEP 3")
 UPLOAD_FOLDER = "uploads"
 CHROMA_DIR = "chroma_db"
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-llm = ChatGroq(
-    groq_api_key=os.getenv("GROQ_API_KEY"),
-    model_name="llama-3.3-70b-versatile",
-    temperature=0
-)
-
 vectorstore = None
 qa_chain = None
 
-
+print("STEP 4")
 
 
 @app.route("/")
@@ -94,7 +89,11 @@ def upload_pdf():
         })        
 
 def process_pdfs(pdf_paths):
-
+    llm = ChatGroq(
+    groq_api_key=os.getenv("GROQ_API_KEY"),
+    model_name="llama-3.3-70b-versatile",
+    temperature=0)
+    
     if os.path.exists(CHROMA_DIR):
         shutil.rmtree(CHROMA_DIR)
     os.makedirs(CHROMA_DIR, exist_ok=True)
