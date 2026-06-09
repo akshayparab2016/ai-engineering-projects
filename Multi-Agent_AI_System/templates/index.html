@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Multi-Agent AI</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">🤖 Multi-Agent AI</div>
+
+        <hr />
+
+        <br />
+
+        <h3>Select Category</h3>
+
+        <br />
+
+        <div class="agents">
+          <div class="agent-card active" data-agent="research">
+            🔍 Research Agent
+          </div>
+          <div class="agent-card" data-agent="planner">📅 Planning Agent</div>
+          <div class="agent-card" data-agent="coding">💻 Coding Agent</div>
+          <div class="agent-card" data-agent="summary">📝 Summary Agent</div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <div class="header">
+          <h1>AI Agent Workspace</h1>
+
+          <span class="status"> ● Online </span>
+        </div>
+
+        <div class="prompt-box">
+          <textarea id="query" placeholder="Ask anything..."></textarea>
+
+          <button id="generateBtn" onclick="runAgent()">
+            Generate Response
+          </button>
+        </div>
+
+        <div id="output">
+          <div class="welcome">
+            <h1>Welcome 👋</h1>
+            <h3>Select an agent and start working...</h3>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
