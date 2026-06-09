@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>AI SQL Assistant</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="app-container">
+      <!-- ========================================= -->
+      <!-- SIDEBAR -->
+      <!-- ========================================= -->
+
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h2>
+            <i class="fa-solid fa-database"></i>
+            SQL AI
+          </h2>
+        </div>
+
+        <!-- DATABASE STATUS -->
+
+        <div class="database-status">
+          <div class="status-title">Active Database</div>
+
+          <div id="active-database" class="database-name">
+            {% if active_db %} {{ active_db.split('/')[-1] }} {% else %} No
+            Database Uploaded {% endif %}
+          </div>
+        </div>
+
+        <!-- DATABASE UPLOAD -->
+
+        <div class="upload-section">
+          <div id="drop-zone" class="drop-zone">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            &nbsp;Drag & Drop
+            <br />
+            <small> Upload .db / .xlsx / .csv / .sql file only</small>
+          </div>
+
+          <input type="file" id="db-file" accept=".db" hidden />
+
+          <button id="upload-btn" class="upload-btn">
+            <i class="fa-solid fa-upload"></i>
+            Upload Database
+          </button>
+
+          <button id="deactivate-btn" class="upload-btn deactivate-btn">
+            <i class="fa-solid fa-ban"></i>
+            Deactivate Database
+          </button>
+        </div>
+
+        <!-- SCHEMA -->
+
+        <div class="sidebar-section">
+          <div class="section-header">
+            <h3>
+              <i class="fa-solid fa-table"></i>
+              Schema
+            </h3>
+
+            <button id="refresh-schema" class="icon-btn">
+              <i class="fa-solid fa-rotate"></i>
+            </button>
+          </div>
+
+          <div id="schema-container">
+            <div class="empty-state-small">Upload a database</div>
+          </div>
+        </div>
+
+        <!-- HISTORY -->
+
+        <div class="sidebar-section">
+          <div class="section-header">
+            <h3>
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              History
+            </h3>
+          </div>
+
+          <div id="history"></div>
+        </div>
+      </aside>
+
+      <!-- ========================================= -->
+      <!-- MAIN CONTENT -->
+      <!-- ========================================= -->
+
+      <main class="main-content">
+        <!-- TOP BAR -->
+
+        <div class="topbar">
+          <div class="topbar-left">
+            <h2>AI SQL Assistant</h2>
+
+            <p>Chat with any SQLite database</p>
+          </div>
+
+          <div class="topbar-right">
+            <div class="connection-badge">
+              <span class="pulse"></span>
+
+              Connected
+            </div>
+          </div>
+        </div>
+
+        <!-- CHAT AREA -->
+
+        <div id="chat-container">
+          <div class="welcome-card" id="welcome-card">
+            <div class="welcome-icon">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <h1>Ask Your Database Anything</h1>
+            <p>Upload a SQLite database and ask questions in plain English.</p>
+
+            <div class="example-prompts">
+              <div class="example-card">Show all employees</div>
+              <div class="example-card">Top 10 highest salaries</div>
+              <div class="example-card">Count employees by department</div>
+              <div class="example-card">Average salary by team</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INPUT AREA -->
+
+        <div class="input-container">
+          <div class="input-wrapper">
+            <textarea
+              id="question"
+              rows="1"
+              autocomplete="off"
+              placeholder="Ask a question about your database..."
+            ></textarea>
+
+            <button id="send-btn" onclick="askAI()">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- TEMPLATES USED BY JAVASCRIPT -->
+    <!-- ========================================= -->
+
+    <template id="schema-template">
+      <div class="schema-card">
+        <div class="table-header">
+          <div class="table-name"></div>
+
+          <div class="table-badge"></div>
+        </div>
+
+        <div class="columns-container"></div>
+      </div>
+    </template>
+
+    <template id="column-template">
+      <div class="column-item">
+        <div class="column-name"></div>
+
+        <div class="column-type"></div>
+      </div>
+    </template>
+
+    <!-- ========================================= -->
+    <!-- LOADING OVERLAY -->
+    <!-- ========================================= -->
+
+    <div id="loading-overlay" class="loading-overlay hidden">
+      <div class="loading-card">
+        <div class="loader"></div>
+
+        <p>Uploading Database...</p>
+      </div>
+    </div>
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ========================================= -->
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
