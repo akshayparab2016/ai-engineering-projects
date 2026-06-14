@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Debate Arena</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="bg-glow"></div>
+
+    <div class="container">
+      <h1>⚔️ AI Debate Arena</h1>
+      <p class="subtitle">Two Perspectives. One Ultimate Verdict.</p>
+
+      <div class="input-box">
+        <input id="topic" placeholder="Enter debate topic..." />
+        <button id="startBtn">Start Debate</button>
+      </div>
+
+      <div class="grid">
+        <div class="panel pro">
+          <div class="panel-header">🟦 Proponent</div>
+          <div id="pro" class="content">
+            <div class="panel-placeholder">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
+                />
+              </svg>
+              <p>Awaiting debate topic...</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel opp">
+          <div class="panel-header">🟥 Opponent</div>
+          <div id="opp" class="content">
+            <div class="panel-placeholder">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
+                />
+              </svg>
+              <p>Awaiting debate topic...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel judge full">
+        <div class="panel-header">⚖️ Judge Verdict</div>
+        <div id="judge" class="content">
+          <div class="panel-placeholder">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3v17.25m0-17.25a3.375 3.375 0 1 1-3.375 3.375A3.375 3.375 0 0 1 12 3Zm0 0a3.375 3.375 0 1 0 3.375 3.375A3.375 3.375 0 0 0 12 3Zm0 17.25a3.375 3.375 0 1 1-3.375-3.375A3.375 3.375 0 0 1 12 20.25Zm0 0a3.375 3.375 0 1 0 3.375-3.375A3.375 3.375 0 0 0 12 20.25Y3"
+              />
+            </svg>
+            <p>The judge will weigh the arguments here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #0b1020;
+  color: #e5e7eb;
+  margin-top: 20px;
+}
+
+.bg-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(99, 102, 241, 0.18),
+    transparent 60%
+  );
+  top: -200px;
+  left: -200px;
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.container {
+  width: 92%;
+  max-width: 1150px;
+  margin: auto;
+  padding: 25px 0;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.subtitle {
+  text-align: center;
+  opacity: 0.8;
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.input-box {
+  display: flex;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-size: 15px;
+}
+
+input:focus {
+  outline: 1px solid #6366f1;
+}
+
+button {
+  padding: 14px 22px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #06b6d4);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  font-size: 15px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 16px;
+  min-height: 300px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.full {
+  margin-top: 18px;
+  max-height: 350px;
+}
+
+.panel-header {
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bubble {
+  padding: 4px;
+  line-height: 1.45;
+  font-size: 14.5px;
+  white-space: normal;
+}
+
+.bubble h1,
+.bubble h2,
+.bubble h3,
+.bubble h4,
+.bubble h5,
+.bubble h6,
+.bubble p,
+.bubble ul,
+.bubble ol,
+.bubble li {
+  margin: 0;
+  padding: 0;
+}
+
+.bubble h1,
+.bubble h2,
+.bubble h3,
+.bubble h4 {
+  margin-top: 14px;
+  margin-bottom: 6px;
+  color: #ffffff; /* Keeps headings highly readable */
+}
+
+.bubble > h1:first-child,
+.bubble > h2:first-child,
+.bubble > h3:first-child,
+.bubble > h4:first-child {
+  margin-top: 0;
+}
+
+.bubble p {
+  margin-bottom: 8px;
+}
+.bubble ul,
+.bubble ol {
+  padding-left: 18px;
+  margin-bottom: 10px;
+}
+
+.bubble li {
+  margin-bottom: 6px;
+}
+
+.pro-bubble {
+  color: #60a5fa;
+}
+.opp-bubble {
+  color: #f87171;
+}
+.judge-bubble {
+  color: #34d399;
+}
+
+.panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+/* --- Active Streaming Glow States --- */
+.panel {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.panel.pro.active {
+  border-color: rgba(96, 165, 250, 0.4);
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.15);
+}
+
+.panel.opp.active {
+  border-color: rgba(248, 113, 113, 0.4);
+  box-shadow: 0 0 15px rgba(248, 113, 113, 0.15);
+}
+
+.panel.judge.active {
+  border-color: rgba(52, 211, 153, 0.4);
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.15);
+}
+
+/* --- Typing / Loading Indicator --- */
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background-color: currentColor; /* Inherits the bubble's color system */
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Make sure content panels use a flexbox layout to isolate the placeholders precisely */
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+  height: 100%;
+}
+
+.panel-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.panel-placeholder svg {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 12px;
+}
+
+.panel-placeholder p {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* Let the custom colors bleed subtly into their designated placeholder icon blocks */
+.pro .panel-placeholder {
+  color: #60a5fa;
+}
+.opp .panel-placeholder {
+  color: #f87171;
+}
+.judge .panel-placeholder {
+  color: #34d399;
+}
