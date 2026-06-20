@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🤖 AI Chat Assistant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="chat-card">
+      <div class="chat-header">
+        <div class="title">🤖 AI Chat Assistant</div>
+        <button id="clear-btn" class="btn-clear">Clear Thread</button>
+      </div>
+
+      <div id="chat-history" class="chat-history">
+        <div class="placeholder-container" id="chat-placeholder">
+          <p class="fs-3 fw-bold mb-2" style="color: #312e81">
+            👋 Welcome back!
+          </p>
+          <p class="small mb-1 fw-medium">
+            Send a message to start a contextual workspace session.
+          </p>
+          <p class="small" style="color: red">
+            Note: Closing or resetting the browser tab clears transient memory.
+          </p>
+        </div>
+      </div>
+
+      <form id="chat-form">
+        <div class="input-group-wrapper">
+          <textarea
+            id="chat-input"
+            name="prompt"
+            rows="1"
+            class="form-control chat-input"
+            placeholder="Ask me anything..."
+            required
+          ></textarea>
+          <button type="submit" class="btn btn-send">Send</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
