@@ -6,7 +6,7 @@ Most web applications here are built using **Flask** for the backend and leverag
 
 ---
 
-## ✨ Repository Overview
+## 📂 Repository Overview
 
 This repository contains the following standalone AI projects:
 
