@@ -1,4 +1,4 @@
-# AI Engineering Projects
+# ✨ AI Engineering Projects
 
 Welcome to the **AI Engineering Projects** repository. This is a collection of various Artificial Intelligence and Machine Learning applications, focusing primarily on Generative AI, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and Multi-Agent workflows. 
 
@@ -6,7 +6,7 @@ Most web applications here are built using **Flask** for the backend and leverag
 
 ---
 
-## 🚀 Repository Overview
+## ✨ Repository Overview
 
 This repository contains the following standalone AI projects:
 
