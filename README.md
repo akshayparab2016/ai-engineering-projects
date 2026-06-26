@@ -17,8 +17,8 @@ This repository contains the following standalone AI projects:
 | **`🎧 AI Customer Support Assistant`** | An AI automated customer support assistant which instantly handles technical, billing, sales queries round the clock. | Python, LangGraph, Flask |
 | **`📧 AI Email Generator`** | An automated tool that leverages Groq's LLM inference to dynamically generate professionally tailored emails based on user prompts. | Python, Flask, Groq API |
 | **`⚖️ AI Multi Agent Debate System`** | A multi-agent AI system, that enables role-specific AI agents to take opposing sides on a user-provided topic and generate structured arguments. | Python, LangGraph, Flask |
-| **`📚 AI PDF RAG Chatbot`**| A RAG pipeline built with LangChain and ChromaDB to perform semantic search and conversational Q&A over unstructured PDF documents. | Flask, Groq, LangChain, ChromaDB |
-| **`💾 AI SQL Assistant`** | A web-based Text-to-SQL assistant tool that allows users to chat directly with their local relational databases using plain english language. | Flask, Groq, SQLite, Pandas |
+| **`📚 AI PDF RAG Chatbot`**| A RAG pipeline built with LangChain and ChromaDB to perform semantic search and conversational Q&A over unstructured PDF documents. | Python, Flask, Groq, LangChain, ChromaDB |
+| **`💾 AI SQL Assistant`** | A web-based Text-to-SQL assistant tool that allows users to chat directly with their local relational databases using plain english language. | Python, Flask, Groq, SQLite, Pandas |
 | **`🤖 Multi-Agent AI System`** | A Multi-Agent AI System where specialized AI agents collaborate to break down complex tasks into specialized sub-tasks to deliver high-quality results. | Python, Flask, Groq |
 
 ---
