@@ -1,7 +1,0 @@
-playwright>=1.40.0
-flask
-selenium
-selenium-stealth
-langchain-groq
-langchain-core
-python-dotenv
